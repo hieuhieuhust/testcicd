@@ -54,3 +54,14 @@ Sửa code → commit/push → GitHub Actions → test → build → deploy GitH
 ```
 
 File điều khiển quy trình là `.github/workflows/ci-cd.yml`. Một pull request chỉ chạy CI; một lần push lên `main` chạy cả CI và CD.
+
+## Triển khai thêm lên Vercel
+
+GitHub lưu mã nguồn; Vercel có thể lấy repository này để xuất bản cùng website tại một địa chỉ `*.vercel.app`. File `vercel.json` yêu cầu Vercel chạy `node scripts/build.js` và phục vụ thư mục `dist/`.
+
+1. Vào [Vercel Dashboard](https://vercel.com/new), đăng nhập và chọn **Add New → Project**.
+2. Kết nối GitHub nếu được hỏi, rồi chọn repository `hieuhieuhust/testcicd` và **Import**.
+3. Đặt **Framework Preset** là **Other** và **Root Directory** là `./`. Cấu hình build và output đã nằm trong `vercel.json`.
+4. Chọn **Deploy**. Khi triển khai xong, Vercel hiện địa chỉ website.
+
+Sau khi kết nối, mỗi lần push lên nhánh production (thường là `main`) sẽ tạo bản production mới; các nhánh khác có bản preview riêng. GitHub Pages vẫn hoạt động song song. Vì ứng dụng lưu danh sách việc bằng `localStorage`, dữ liệu trên miền `github.io` không tự chuyển sang miền `vercel.app`.
