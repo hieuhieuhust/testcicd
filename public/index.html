@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f6f2" />
+    <title>Bảng việc nhỏ · Học CI/CD</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <span class="eyebrow">DỰ ÁN THỰC HÀNH CI/CD</span>
+        <h1>Bảng việc nhỏ<span class="dot">.</span></h1>
+        <p>Ghi lại những việc cần làm. Mỗi thay đổi của dự án này có thể đi qua kiểm thử, build và triển khai tự động.</p>
+      </header>
+
+      <section class="card" aria-labelledby="board-title">
+        <div class="card-heading">
+          <div>
+            <p class="section-label">HÔM NAY</p>
+            <h2 id="board-title">Việc của bạn</h2>
+          </div>
+          <span id="count" class="count" aria-live="polite">0 việc</span>
+        </div>
+
+        <form id="task-form" class="task-form">
+          <label class="sr-only" for="task-input">Việc cần làm</label>
+          <input id="task-input" name="task" type="text" maxlength="100" placeholder="Ví dụ: Chạy thử pipeline CI" required autocomplete="off" />
+          <button type="submit">Thêm việc <span aria-hidden="true">→</span></button>
+        </form>
+
+        <p id="empty" class="empty">Chưa có việc nào. Hãy thêm việc đầu tiên!</p>
+        <ul id="task-list" class="task-list" aria-label="Danh sách việc cần làm"></ul>
+      </section>
+
+      <footer>
+        <span>Học bằng cách làm</span>
+        <span class="footer-separator" aria-hidden="true">/</span>
+        <span>Dữ liệu được lưu trong trình duyệt này</span>
+      </footer>
+    </main>
+  </body>
+</html>
